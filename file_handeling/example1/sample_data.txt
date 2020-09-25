@@ -1,0 +1,3 @@
+This was my very first program writing data to a file
+This is the first line and the second part
+This is the second line. 
