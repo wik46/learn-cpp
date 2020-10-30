@@ -9,11 +9,14 @@
 #include <iostream>
 
 class Person{
-public: // Everything is public to make the example simplies.
+	// Remember that private members can only be accessed from inside the class.
+	// This means that a child class of Person cannot access the Person's private
+	// members.
 	// Member variables.
 	std::string m_name;
 	int m_age;
 	
+public:
 	// Methods.
 	friend std::ostream& operator<<(std::ostream& stream, const Person& object){
 		stream << object.m_name << ", " << object.m_age << std::endl;
@@ -38,17 +41,25 @@ public: // Everything is public to make the example simplies.
 
 class RugbyPlayer: public Person
 {
-public:
+
 	std::string m_team_name;
+public:
+	// You cannot access Person's private members but the initializer list
+	// will be called before the body of the RugbyPlayer constructor. Therefore you 
+	// call the Parent class's constructor from the child's initializer list.
 	RugbyPlayer(){}	
 	
-	RugbyPlayer(const char* team_name): m_team_name{team_name}
+	RugbyPlayer(const std::string& name = "", const int age = 0, const char* team_name = NULL)
+	: Person{name, age}, m_team_name{team_name}
 	{
 		std::cout << "Rugby player was constructed by default constructor." << std::endl;
 	}
 	// Still need to add member variables and member
 	
 	void print(){
+		// Notice how I can call the parent's print function using the scope
+		// qualifier.
+		Person::print();
 		std::cout << "Method of the child." << std::endl;
 	}
 
@@ -63,21 +74,26 @@ class RugbyTeam
 };
 int main(){
 	//RugbyPlayer r("Blue Bulls");
-	Person p;
-	RugbyPlayer r;
+	Person p("Anton", 30);
+	RugbyPlayer r("Wikus", 20, "MenloPark");
 	// Notice that both the parent and the child have a print function
 	// with different functionality. The variable of type Person will envoke its own print()
 	// function and the variable of type RugbyPlayer will envoke its own parent.
-	//p.print();
+	p.print();
+	// The function print() defined inside the child calls the print() defined in the parent
+	// class.
 	r.print();
 	
-	// You can create an array of Parents and store children in them.
-	Person p_ar[3];
-	p_ar[0] = r;
+	std::cout << std::endl << "-----------" << std::endl;
+	{
+		// You can create an array of Parents and store children in them.
+		Person p_ar[3];
+		p_ar[0] = r;
 	
-	//p_ar[0].print();	
-	std::cout << p_ar[0] << std::endl;
-	std::cout << r << std::endl;
+		//p_ar[0].print();	
+		std::cout << p_ar[0] << std::endl;
+		std::cout << r << std::endl;
+	}
 	return 0;
 }
 

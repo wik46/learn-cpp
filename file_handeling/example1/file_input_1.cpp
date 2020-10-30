@@ -29,7 +29,13 @@ int main(){
 	// Create an instance of an ifstream object.
 	// ### Note that you need the file sample_data.txt in the same directory for 
 	// 	this program to work.
-	std::ifstream infile("sample_data.txt");
+	// *Side note: Remember that another name for a member variable is a field.
+	// 	       Another name for a member function is called a method.
+	const char* file_name = "sample_data.txt";
+	std::ios_base::openmode mode = std::fstream::in;
+
+	std::ifstream infile;
+	infile.open(file_name, mode);
 
 	// The case when we cannot open the file.
 	if(!infile){

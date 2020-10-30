@@ -37,5 +37,7 @@ int main(){
 
 	// The instance of ofstream myfile will be destroyed by the constructor once myfile goes 
 	// 	out of scope. 
+	// But it is good practise to close a file.
+	myfile.close();
 	return 0;
 }
