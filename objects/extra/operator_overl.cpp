@@ -21,8 +21,8 @@
 // c. normal function.
 
 // List of operator overloads.
-// 1. Mathematical operators: +, -, *, and /.
-// 2. 
+// 1. Mathematical operators (binary): +, -, *, and /.
+// 2. Unary operators: !, +, and -.
 // 3. Overloaded I/O operators: << and >>.
 // 4. Comparison operators: ==, !=, >, =>, <, and <=.
 // 5. 
@@ -59,6 +59,10 @@ public:
 	Vec3d& operator*(float);	
 	// This is the overloaded comparison operator.
 	bool operator==(const Vec3d&) const;
+	// The unary operator.
+	// I do not want to change the value of the object, I only want the negative of 
+	// it.
+	Vec3d operator-();
 
 	// The overloaded '<<' operator.
 	friend std::ostream& operator<<(std::ostream&, const Vec3d&);
@@ -88,6 +92,8 @@ Vec3d& Vec3d::operator+(const Vec3d& vec3){
 	this->m_x += vec3.get_x();
 	this->m_y += vec3.get_y();
 	this->m_z += vec3.get_z();
+	// This is only to see when the functions is called.
+	std::cout << "[operator+()]: As member function" << std::endl;
 	// Return the Vec3d instance.
 	return *this;
 }
@@ -157,13 +163,23 @@ Vec3d& Vec3d::operator*(float scalar){
  * Function name: operator==().
  * Description: This function is oveloaded as a member function.
  * 		This is a binary operator.
- * 		This operator overload will be used when I want to multiply my vector
- * 		with some scalar. The result will produce a vector.
+ * 		Two vectors are equal if there components are equal.
  * **************************************************************************************/
 bool Vec3d::operator==(const Vec3d& vector) const{
 	return ((this->m_x == vector.get_x())
 	&& (this->m_y == vector.get_y())
 	&& (this->m_z == vector.get_z()));
+}
+/* ***************************************************************************************
+ * Function name: operator-().
+ * Description: This function is oveloaded as a member function.
+ * 		This is a unary operator.
+ * 		This is used when I want to obtain the vector parallel to the current
+ * 		instance, but in the opposite direction.
+ * **************************************************************************************/
+Vec3d Vec3d::operator-(){
+	// This returns a new vector in the opposite direction.
+	return Vec3d(-m_x, -m_y, -m_z);
 }
 
 /* ***************************************************************************************
@@ -256,16 +272,20 @@ int main(){
 	// NB! v1 is changed.
 	v1 + v2;
 	std::cout << "1.) Vector addition: "<< v1 << std::endl << std::endl;
+	// =============
 	// Example 2: Scalar multiplication.
 	float scalar = 4.6;
 	v1 = v1 * scalar;
 	std::cout << "2.) Scalar multiplication: "<< v1 << std::endl << std::endl;
+	// =============
 	// Example 3: Vector addition with a normal function.
 	// Note that this will change the value of v2.
 	std::cout << "3.) Vector addition: " << v2 + v3 << std::endl; 
+	// =============
 	// Example 4: The overloaded >> operator.
 	std::cin >> v1;
 	std::cout << std::endl << "4.) Your input: " << v1 << std::endl;
+	// =============
 	// Example 5: Using the comparison operator.
 	std::cout << std::endl << "5.) Comparison between: " << v1 << " and "
 	<< v3 << std::endl;
@@ -274,6 +294,7 @@ int main(){
 	}else{
 		std::cout << "Not equal." << std::endl;
 	}
+	// =============
 	// Example 6: Pre/Post - increment.
 	Vec3d v4(0,0,0);
 	Vec3d v5(0,0,0);
@@ -282,10 +303,18 @@ int main(){
 	<< "Before: "<< std::endl;
 	std::cout << "v4: " << v4 <<std::endl
 	<< "v5: " << v5 << std::endl;
-	// Showing the pre/post working.
+		// Showing the pre/post working.
 	std::cout << "v4 - pre: " << ++v4<<std::endl
 	<< "v5 - post: " << v5++ << std::endl;
+	// =============
+	std::cout << std::endl << "7.) The unary operator '-': Note that this " 
+	<< "returns a value for the program to use and does not change the value of the instance used."
+	<< std::endl;
+	Vec3d v7 = Vec3d(10,23,1);
+	std::cout << "With operator: " << -v7 << " and without operator " << v7 << std::endl;
 	
+
+	std::cout << std::endl;
 	std::cout << std::endl << "Summary of all the vectors used." << std::endl;	
 	std::cout << "v1: " << v1 << std::endl
 	<< "v2: " << v2 << std::endl
