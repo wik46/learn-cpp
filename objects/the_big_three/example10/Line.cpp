@@ -109,7 +109,6 @@ int Line::count{0};
 // This is a static member function. It can only operate on static member variables.
 // It is used so that we don't have to initialize and instance of a class before
 // having access to a private static member variable.
-
 // Note that we don't use static here.
 int Line::get_count(){
 	return Line::count;
