@@ -12,3 +12,4 @@ that I wrote while studying during my first few CS classes in college.
 * [The Cherno: C++ tutorials](https://www.youtube.com/watch?v=18c3MTX0PK0&list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb)
 * [Learncpp](https://www.learncpp.com)
 * [GeeksforGeeks](https://www.geeksforgeeks.org/c-plus-plus/?ref=leftbar)
+* [Medium.com](https://medium.com "Great articles for extra reading")
