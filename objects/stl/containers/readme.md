@@ -69,4 +69,6 @@ BASIC OPERATIONS THAT WE WANT TO PERFORM ON OUR CONTAINERS:
 
 3. Sort the container: for sequence containers.
 	
-
+Take note:
+	With the additions of C++11, all the associative containers have an unordered version of 
+	the container. (https://www.cplusplus.com/reference/stl/)
