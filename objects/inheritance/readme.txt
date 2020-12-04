@@ -17,3 +17,7 @@ Learning Resource: GeeksforGeeks.org
 		  initializer list of the child. This parent will be constructed
 		  first, before moving to the body of the child constructor.
 		- Destructors are always called in reverse order than the constructors.
+	
+	II.) Inheritance and the Big three.
+		- files: big_three_part*
+
