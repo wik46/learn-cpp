@@ -17,9 +17,9 @@
 // Why do we need them?
 
 /* 
-   We want to be able to define a function that different types as parameters
+   We want to be able to define a function that takes different types as parameters
    but those types are similiar so we don't want to write two different functions.
-   Think about a function that adds to integers. We would want the same function to
+   Think about a function that adds two integers. We would want the same function to
    be able to add double's, floats without losing the contents due to implicit casting. 
 */
 

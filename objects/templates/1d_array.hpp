@@ -31,11 +31,11 @@
 // Purpose of this class.
 
 /* 
- Why do we need class templates? It enables us to build containers to store data of
- different types but that are very similar in functionality.
- Note that the compiler creates a template instance of an object if is used by the 
- program. Because cpp compiles files seperatly, we need to add our implementation
- file along with our header file in a .hpp file.
+ 	Why do we need class templates? It enables us to build containers to store data of
+ 	different types but that are very similar in functionality.
+ 	Note that the compiler creates a template instance of an object if is used by the 
+ 	program. Because cpp compiles files seperatly, we need to add our implementation
+ 	file along with our header file in a .hpp file.
 */
 
 
@@ -112,7 +112,7 @@ Array<T>& Array<T>::operator=(T var){
  * **************************************************************************************/
 // == Remember that to add the template parameters in the definition outside of the class
 //    as well. ==
-template <typename T>
+template <class T>
 void Array<T>::print() const{
 	std::cout << std::endl;
 	for(int i = 0; i < m_array.size(); i++){
@@ -136,7 +136,7 @@ void Array<T>::print() const{
  * Pre-conditions: -
  * Post-conditions: -
  * **************************************************************************************/
-template <typename T>
+template <class T>
 Array<T>::Array(){
 	// Temporary.
 	std::cout << "Default constructor for the Array." << std::endl;
@@ -151,7 +151,7 @@ Array<T>::Array(){
  * Pre-conditions: -
  * Post-conditions: -
  * **************************************************************************************/
-template <typename T>
+template <class T>
 Array<T>::Array(int n)
 {
 	assert(n > 0 && "[Unable to construct array]: Must have size of at leaste one");	
@@ -166,7 +166,7 @@ Array<T>::Array(int n)
  * Pre-conditions: -
  * Post-conditions: -
  * **************************************************************************************/
-template <typename T>
+template <class T>
 Array<T>::Array(T variable, int n) 
 {
 	// Making sure that the array has at least one element.
