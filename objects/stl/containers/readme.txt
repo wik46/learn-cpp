@@ -16,20 +16,31 @@
 					- Each node only has a next pointer.	
 				* std::deque ( double ended queu class, a dynamic array that can grow 
 						from both ends.)
-				* std::string
 			
 			2. Associative Containers:
 			- Thes containers order the elements after they have been inserted into
 			  the container. NB! If you insert user-defined types you must ensure that
 			  the operator<() us overloaded in order to use container.
-
+				TYPES: All are followed by an undordered version of the constainer.
+				* std::set
+				* std::unordered_set
+			
+				* std::map 
+				* std::unordered_map
+			
+				* std::multiset
+				* std::unordered_multiset
+			
+				* std::multimap
+				* std::unordered_multimap
 			3. Container Addapters:
 			- These containers are an application of the above mentioned containers.
 			- They are data structures that are very commonly used, therefore
 			  they have been defined over the the two above mentioned containers.
 			Examples of such containers are:
 				
-				* std::stack: Underlying container is the std::deque by default, but it
+				* std::stack (LIFO): 
+					     Underlying container is the std::deque by default, but it
 					      can be changed to use std::vector or std::list. 
 					     - Elements operate in a LIFO or FILO.
 					     - All stacks are defined by two fundamental operations:
@@ -40,7 +51,8 @@
 					     - Or the first element inserted in the structure will
 						be the last element to be removed.
 				
-				* std::queue: Underlying container is std::deque by default, but can
+				* std::queue (FIFO): 
+					     Underlying container is std::deque by default, but can
 					      be changed to std::vector or std::list.
 					     - Elements operate with a FIFO or LILO procedure.
 						^ Think of standing in a queue, the first person (datapoint)

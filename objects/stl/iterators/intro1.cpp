@@ -44,7 +44,8 @@ int main(){
 	// 2. Here I am using the .advance() member function.
 	// This function will advance the iterator by the number specified.
 	std::vector<int>::iterator n = v.begin();
-	
+	// This function takes an iterator and advances 2 steps foward.
+	// This is only available with random-access iterators.
 	advance(n, 2);
 	std::cout << *(n++) << std::endl;
 	// Note that the post-increment happens after cout, but at the next cout er

@@ -50,11 +50,13 @@ int main(){
 	// This is the 1d vector iterator.
 	std::vector<std::string>::iterator it2;
 	// Remember that an iterator is pointer
+	int i = 0;
 	for(it = _2d_str.begin(); it != _2d_str.end(); it++){
 		for(it2 = it->begin(); it2 != it->end(); it2++){
-			std::cout << *it2 << std::endl;
+			i++; // Only used to see the number of iterations.
+			std::cout << i << ".) "<< *it2 << std::endl;
 		}
-		std::vector<std::string>::iterator it2;
+//		std::vector<std::string>::iterator it2;
 	}
 
 	std::cin.get();
