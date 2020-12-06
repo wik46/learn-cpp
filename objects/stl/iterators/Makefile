@@ -37,5 +37,5 @@ $(EXE_FILE4): intro4.cpp
 
 # To clean the program
 clean:	
-	rm -f *.out $(EXE_FILE1) $(EXE_FILE2) $(EXE_FILE3)
+	rm -f *.out $(EXE_FILE1) $(EXE_FILE2) $(EXE_FILE3) $(EXE_FILE4)
 ## =======================================================================================
