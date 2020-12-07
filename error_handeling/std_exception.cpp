@@ -33,12 +33,17 @@ public:
 	:m_error(error), m_error_num(num)
 	{}
 	// This is a member function to tell me what I need to do.
+	// NB! This is overriden from the std::exception class so the 
+	// 	function prototype must be identitcal
 	const char* what() const throw() /*noexcept*/{
-		std::cout << "Number that cause excpetion: " << m_error_num << std::endl;
+		std::cout << "Number that cause exception: " << m_error_num << std::endl;
 		return m_error.c_str();
 	}
-	
+	// THIS is needed because we derive from std::exception
+	virtual ~MathError() throw(){}
 };
+// Always need a body for a virtual destructor.
+
 
 // This function divides to numbers.
 double divide(double numerator, double denominator ){
@@ -68,7 +73,7 @@ int main(){
 	}catch(const std::exception& e){
 		std::cout << std::endl << "Enter std::exception catch block." << std::endl;
 
-		std::cout << "Standard exception: "<< e.what() << std::endl;
+		std::cout << "Standard exception: " << e.what() << std::endl;
 	}catch(...){
 		std::cout << "Catch all exception executed." << std::endl;
 	}

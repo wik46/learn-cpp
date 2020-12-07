@@ -9,6 +9,7 @@
 
 #include <iostream>
 
+// Here we are building on the example of intro.cpp.
 // The only purpose of this function is to show how to put your throw statements inside
 // a function an what happens afterwards.
 // This function will throw an integer error.
@@ -33,7 +34,7 @@ void thrower_float(){
 // 3rd function that will throw.
 void thrower_c_string(){
 	
-	char* err = "I am a c-string";
+	const char* err = "I am a c-string";
 	throw err;
 	return;
 } 
@@ -94,8 +95,8 @@ int main(){
 	}catch(float){
 		std::cout << "I caught an float error." << std::endl;	
 
-	}catch(char*){
-		std::cout << "I caught an char* error." << std::endl;	
+	}catch(const char*){
+		std::cout << "I caught an const char* error." << std::endl;	
 
 	}catch(std::string){
 		std::cout << "I caught an string error." << std::endl;	
@@ -108,6 +109,8 @@ int main(){
 	}catch(...){
 		std::cout << "I caught an unknown error." << std::endl;
 	}	
+
+	std::cout << "\n** End of program **" << std::endl;
 	return 0;
 
 }

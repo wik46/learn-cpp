@@ -45,7 +45,9 @@ int main(){
 		std::cout << "Inside try." << std::endl;
 		// I am throwing Derived.
 		throw d;
+	// This shows why you should all put your most Base class at the end of the catch sequence.
 	}catch(Base b){
+		// The derived has a part base, so this will catch any class that is derived from it.
 		std::cout << "Base caught" << std::endl;
 	}catch(Derived d){
 		std::cout << "Derived caught" << std::endl;
@@ -59,18 +61,16 @@ int main(){
 	}catch(int x){
 		std::cout << "First catch" << std::endl;
 		try{
-			std::cout << "Inside inner try" << std::endl;
+			std::cout << "\tInside inner try" << std::endl;
 			// This will rethrow the intial type
 			// In this case 5 will be thrown again.
 			throw;
 		}catch(int n){
-			std::cout << "Inside inner catch" << std::endl;
+			std::cout << "\tInside inner catch" << std::endl;
 		}
 	}
-
-	// Example 1;
+	std::cout << "\n** End of program **"<< std::endl;
 	std::cout << std::endl;
-	//std::cout << "Example 1" << std::endl;
 
 	return 0;
 }
