@@ -21,10 +21,13 @@ int main(){
 		std::cout << "Error file not open." << std::endl;
 		exit(EXIT_FAILURE);
 	}
-	
+
+	// Getting the number of wizards from the file.	
 	int number_of = 0;
 	file >> number_of;
+	// Creating an array to store all the wizard information received from the file.
 	Wizard* school_of_wizards = new Wizard[number_of];
+
 
 	int i = 0;
 	while(file){
@@ -34,10 +37,16 @@ int main(){
 		i++;
 	}
 	
-	print_info(&(school_of_wizards[4]));
+	// Printing all the newly stored information received from the files.
+	for(int i = 0; i < number_of; i++){
+		std::cout << "---------"<< std::endl;
+		print_info(&(school_of_wizards[i]));
+	}
+	
 	// Alway close your file.
 	file.close();
 	
+	// Freeing the memory.	
 	delete[] school_of_wizards;
 	return 0;
 }

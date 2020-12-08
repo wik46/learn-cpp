@@ -20,10 +20,10 @@ int main(){
 	std::fstream f;
 	
 	// Step 2: Open the file.
-	
+	// Opening file for to get the data inside the file.
 	f.open("book1.txt",std::ios::in);
 	
-	//	This opens the file at the end (ate)
+	//	This opens the file At The End (ate)
 	//	f.open("book.txt", std::ios::ate); // For input/output capability.
 	
 	//	f.open("book.txt", std::ios::in); // For read only (input stream).
@@ -39,14 +39,20 @@ int main(){
 			std::cout << i << ") " << tmp[i] << std::endl;
 		}
 		std::cout << "\nRound 2\n" << std::endl;
+		// .seekg() is a public member inhereted from std::istream.
+		// .seekg() sets the position of the sets the position of the position of the next
+		// character to extract from the stream.
 		f.seekg(0, std::ios::beg); // Changes the read pointer to 0 units from the begining.
+		// -------
 		for(int i = 0; !f.eof(); i++){
 			std::getline(f,tmp[i],',');
 			std::cout << i << ") " << tmp[i] << std::endl;
 		}
 		f.close();
+		// ------
+		
 		f.open("book1.txt",std::ios::app|std::ios::out);	
-	
+		// .seekp() is a public member function inhereted from std::ostream.
 		f.seekp(0, std::ios::end);
 		f << ",The new line inserted";
 	
