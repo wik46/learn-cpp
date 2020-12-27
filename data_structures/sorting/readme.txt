@@ -3,7 +3,7 @@ Date: December 7, 2020.
 Description:
 	This directory is created prior to taking any analysis of algorithms class.
 	The purpose of this directory is to study a few basic algorithms:	
-		** Stable sort: When 2 elemnts that have the same rank before
+		** Stable sort: When 2 elements that have the same rank before
 				sorting maintains the same rank.
 				Think about is like this:
 					* Lets say you have a person object that has a name and
