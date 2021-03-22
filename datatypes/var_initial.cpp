@@ -2,7 +2,7 @@
  *Program Filename: var_initial.vpp
  *Author: Wikus
  *Date: 10 July 2020
- *Description: Understanding the types of variabel initialization
+ *Description: Understanding the types of variable initialization
  *Input
  *Output
  **************************************/
